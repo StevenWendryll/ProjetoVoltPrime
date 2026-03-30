@@ -1,11 +1,12 @@
 function animateCount(el, target, suffix, ms) {
     let t0 = null;
-    (function step(ts) {
+    function step(ts) {
         if (!t0) t0 = ts;
         const p = Math.min((ts - t0) / ms, 1);
         el.textContent = Math.round((1 - Math.pow(1 - p, 3)) * target) + suffix;
         if (p < 1) requestAnimationFrame(step);
-    })(performance.now());
+    }
+    requestAnimationFrame(step);
 }
 
 function releaseFocus(el) {
@@ -225,53 +226,12 @@ document.addEventListener('DOMContentLoaded', () => {
     /* ══ FORMULÁRIO ═══════════════════════════════════════════════════ */
 
     // Máscara do Telefone
-    const phoneInput = document.getElementById('f-phone');
-    if (phoneInput) {
-        phoneInput.addEventListener('input', function () {
-            let v = this.value.replaceAll(/\D/g, '').slice(0, 11);
-            if (v.length > 2) v = '(' + v.slice(0, 2) + ') ' + v.slice(2);
-            if (v.length > 10) v = v.slice(0, 10) + '-' + v.slice(10);
-            this.value = v;
-        });
-    }
-
-    // Contador de caracteres
-    const msgEl = document.getElementById('f-msg');
-    const ccEl = document.getElementById('char-msg');
-    if (msgEl && ccEl) {
-        msgEl.addEventListener('input', () => {
-            const n = msgEl.value.length;
-            ccEl.textContent = n + ' / 500';
-            ccEl.style.color = n > 450 ? '#f87171' : '';
-        });
-    }
-
-    // Validação e Submissão
-    const FIELDS = {
-        'f-name': { group: 'fg-name', test: v => v.length >= 2 && v.length <= 80 && /^[A-Za-zÀ-ÿ\s'-]+$/.test(v) },
-        'f-phone': { group: 'fg-phone', test: v => v.replaceAll(/\D/g, '').length >= 10 },
-        'f-svc': { group: 'fg-svc', test: v => v !== '' },
-    };
-
-    function validateField(id) {
-        const { group, test } = FIELDS[id];
-        const f = document.getElementById(id);
-        const ok = test(f.value.trim());
-        document.getElementById(group).classList.toggle('has-error', !ok);
-        f.setAttribute('aria-invalid', ok ? 'false' : 'true');
-        return ok;
-    }
-
-    Object.keys(FIELDS).forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.addEventListener('blur', () => validateField(id));
-    });
-
     const svcForm = document.getElementById('svcForm');
     if (svcForm) {
         svcForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
+            // 1. Valida todos os campos
             const allValid = Object.keys(FIELDS).map(validateField).every(Boolean);
             if (!allValid) {
                 const first = document.querySelector('.has-error input,.has-error select');
@@ -279,22 +239,43 @@ document.addEventListener('DOMContentLoaded', () => {
                 return;
             }
 
+            // 2. Muda o estado do botão
             const btn = document.getElementById('submitBtn');
             btn.disabled = true;
-            btn.textContent = 'Enviando…';
+            btn.textContent = 'Redirecionando...';
 
-            /* Mockup de requisição */
+            // 3. Captura os dados
+            const nome = document.getElementById('f-name').value.trim();
+            const telefone = document.getElementById('f-phone').value.trim();
+            const servico = document.getElementById('f-svc').value;
+            const mensagem = document.getElementById('f-msg').value.trim() || 'Sem detalhes adicionais.';
+
+            // 4. Monta a mensagem
+            const textoWhatsApp = `*Nova Solicitação de Serviço ⚡*\n\n*Nome:* ${nome}\n*Contato:* ${telefone}\n*Serviço desejado:* ${servico}\n*Descrição:* ${mensagem}`;
+
+            // 5. Número de destino (COLOQUE O SEU AQUI PARA TESTAR)
+            const numeroDestino = '5524999990000';
+
+            // 6. ABRE A JANELA IMEDIATAMENTE (Evita o bloqueador de pop-ups)
+            const urlBase = `https://wa.me/${numeroDestino}?text=${encodeURIComponent(textoWhatsApp)}`;
+            window.open(urlBase, '_blank');
+
+            // 7. Atualiza o visual do botão
+            btn.textContent = '✅ Enviado!';
+            btn.style.background = '#22c55e';
+
+            // 8. Fecha o modal e limpa tudo após 1.5 segundos
             setTimeout(() => {
-                btn.textContent = '✅ Solicitação enviada!';
-                btn.style.background = '#22c55e';
+                closeModal();
                 svcForm.reset();
+                const ccEl = document.getElementById('char-msg');
                 if (ccEl) ccEl.textContent = '0 / 500';
 
-                setTimeout(() => {
-                    closeModal();
-                    btn.disabled = false; btn.style.background = ''; btn.textContent = 'Enviar solicitação ⚡';
-                }, 2400);
-            }, 900);
+                btn.disabled = false;
+                btn.style.background = '';
+                btn.textContent = 'Enviar solicitação ⚡';
+            }, 1500);
+
         });
     }
 });

@@ -504,7 +504,7 @@ header.site-hdr.scrolled {
         border-radius: var(--r-lg);
         padding: 26px;
         animation: fadeUp .7s ease .4s both;
-        
+
     }
 
     .hero-card-title {
@@ -512,7 +512,7 @@ header.site-hdr.scrolled {
         font-weight: 800;
         font-size: 1rem;
         margin-bottom: 16px;
-        
+
     }
 
     .hc-row {
@@ -829,7 +829,7 @@ header.site-hdr.scrolled {
     font-size: .93rem;
     line-height: 1.25;
     margin-bottom: 6px;
-    color:white
+    color: var(--text)
 }
 
 .card-desc {
@@ -1357,20 +1357,33 @@ a.btn-tel:hover {
     position: fixed;
     inset: 0;
     z-index: 500;
-    background: rgba(233, 230, 230, 0.65);
+    background: rgba(0, 0, 0, .65);
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     display: flex;
     align-items: flex-end;
+    /* No mobile ele fica colado embaixo */
     justify-content: center;
     opacity: 0;
     pointer-events: none;
     transition: opacity .3s ease;
+
+    /* 👇 RESET DA TAG NATIVA <dialog> */
+    margin: 0;
+    padding: 0;
+    border: none;
+    width: 100%;
+    height: 100svh;
+    /* Usa a altura segura da tela inteira */
+    max-width: 100%;
+    max-height: 100%;
+    color: inherit;
+    /* Impede que o texto fique preto por causa do dialog nativo */
 }
 
 .modal-overlay.open {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
 }
 
 .modal-sheet {
@@ -1456,7 +1469,7 @@ a.btn-tel:hover {
     font-weight: 800;
     font-size: 1.2rem;
     margin-bottom: 5px;
-    color:white
+    color: var(--text)
 }
 
 .modal-sub {
