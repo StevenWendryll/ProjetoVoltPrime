@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <!-- ══ SECURITY META HEADERS ══════════════════════════════════════════ -->
+  <meta http-equiv="Content-Security-Policy" content="
+      default-src 'self';
+      style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+      font-src https://fonts.gstatic.com;
+      script-src 'self';
+      img-src 'self' data: https:;
+      connect-src 'none';
+      frame-src 'none';
+      object-src 'none';
+      base-uri 'self';
+      form-action 'self';
+    " />
+  <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+  <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+  <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()" />
+  <meta http-equiv="X-Frame-Options" content="DENY" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description"
+    content="VoltPrime — Instalação e manutenção elétrica em Anchieta. Eletricistas certificados CREA, atendimento 24h, orçamento gratuito." />
+  <meta name="robots" content="index, follow" />
+  <meta name="theme-color" content="#09090e" />
+  <meta property="og:title" content="VoltPrime — Serviços Elétricos | Anchieta" />
+  <meta property="og:description"
+    content="Instalação e manutenção elétrica residencial e comercial. Eletricistas certificados, atendimento 24h." />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <title>VoltPrime — Serviços Elétricos | Anchieta</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap"
+    rel="stylesheet" />
+
+  <!-- CSS E JS EXTERNOS -->
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="js/main.js" defer></script>
+</head>
+
+<body>
+
+  <!-- ── SKIP LINK ── -->
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- ── DECORATIVE BG ── -->
+  <div class="aurora" aria-hidden="true">
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+    <div class="aurora-blob"></div>
+  </div>
+  <div class="noise" aria-hidden="true"></div>
+  <div id="scrollBar" aria-hidden="true"></div>
+
+  <!-- ── FLOATING CTA ── -->
+  <button class="float-cta js-open-modal">
+    ⚡ Orçamento grátis
+  </button>
+
+  <!-- ── BOTTOM NAV ── -->
+  <nav class="bottom-nav" aria-label="Navegação principal">
+    <button class="nav-btn active js-nav-btn" data-target="top" aria-label="Início" aria-current="page">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        aria-hidden="true">
+        <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+        <polyline points="9 22 9 12 15 12 15 22" />
+      </svg>
+      <span>Início</span>
+    </button>
+    <button class="nav-btn js-nav-btn" data-target="servicos" aria-label="Serviços">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        aria-hidden="true">
+        <rect x="3" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="3" width="7" height="7" rx="1" />
+        <rect x="14" y="14" width="7" height="7" rx="1" />
+        <rect x="3" y="14" width="7" height="7" rx="1" />
+      </svg>
+      <span>Serviços</span>
+    </button>
+    <button class="nav-btn js-nav-btn" data-target="area" aria-label="Área de atendimento">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        aria-hidden="true">
+        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+        <circle cx="12" cy="10" r="3" />
+      </svg>
+      <span>Área</span>
+    </button>
+    <button class="nav-btn js-open-modal" aria-label="Solicitar orçamento">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+        aria-hidden="true">
+        <path
+          d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z" />
+      </svg>
+      <span>Contato</span>
+    </button>
+  </nav>
+
+  <!-- ════════════════════════════════ MAIN ════════════════════════════════ -->
+  <div class="wrapper" id="main">
+
+    <!-- HEADER -->
+    <header class="site-hdr" id="siteHdr" role="banner">
+      <a class="logo" href="#" aria-label="VoltPrime — página inicial">
+        <div class="logo-icon" aria-hidden="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+          </svg>
+        </div>
+        VoltPrime
+      </a>
+      <nav class="nav-links" aria-label="Navegação desktop">
+        <a href="#servicos">Serviços</a>
+        <a href="#porque-nos">Por que nós</a>
+        <a href="#area">Área</a>
+      </nav>
+      <button class="btn-nav js-open-modal" aria-label="Agendar visita técnica gratuita">
+        Agendar visita
+      </button>
+    </header>
+    <div class="hdr-divider" aria-hidden="true"></div>
+
+    <!-- HERO -->
+    <section class="hero" aria-labelledby="hero-ttl">
+      <div class="hero-content">
+        <output class="hero-badge">
+          <span class="badge-dot" aria-hidden="true"></span>
+          Disponível em Anchieta e Região
+        </output>
+        <h1 class="hero-title" id="hero-ttl">Elétrica<br>de confiança</h1>
+        <p class="hero-sub">
+          Instalações, reparos e manutenção elétrica residencial e comercial.
+          Profissionais certificados pelo CREA, atendimento rápido e garantia
+          de 12 meses em todos os serviços.
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary js-open-modal">
+            ⚡ Solicitar serviço
+          </button>
+          <button class="btn-secondary js-scroll-to" data-target="servicos">
+            Ver serviços
+          </button>
+        </div>
+      </div>
+
+      <!-- Desktop card -->
+      <aside class="hero-card" aria-label="Resumo dos diferenciais">
+        <div class="hero-card-title">✅ Nossos diferenciais</div>
+        <div class="hc-row"><span>Certificação CREA/MTE</span><span class="hc-badge hc-ok">Ativo</span></div>
+        <div class="hc-row"><span>Emergências 24h</span><span class="hc-badge hc-24">24 horas</span></div>
+        <div class="hc-row"><span>Garantia no serviço</span><span class="hc-badge hc-ok">12 meses</span></div>
+        <div class="hc-row"><span>Automação residencial</span><span class="hc-badge hc-new">Novo</span></div>
+        <div class="hc-row"><span>Orçamento</span><span class="hc-badge hc-ok">Gratuito</span></div>
+      </aside>
+    </section>
+
+    <!-- STATS -->
+    <ul class="stats-strip reveal" aria-label="Números que comprovam nossa qualidade">
+      <li class="stat-item">
+        <div class="stat-num" id="cnt-cli" aria-label="mais de 1240 clientes atendidos">0</div>
+        <div class="stat-lbl">Clientes<br>atendidos</div>
+      </li>
+      <li class="stat-item">
+        <div class="stat-num">15+</div>
+        <div class="stat-lbl">Anos de<br>experiência</div>
+      </li>
+      <li class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">Garantia<br>com ART</div>
+      </li>
+    </ul>
+
+    <!-- SERVICES -->
+    <div class="svc-wrap">
+      <div class="sec-hdr reveal" id="servicos">
+        <div class="sec-label" aria-hidden="true">Serviços</div>
+        <h2 class="sec-title">O que <em>fazemos</em></h2>
+      </div>
+      <ul class="svc-grid" aria-label="Serviços elétricos disponíveis">
+
+        <li>
+          <button class="svc-card js-service-card" type="button"
+            aria-label="Instalação Elétrica — clique para solicitar" data-title="Instalação Elétrica"
+            data-desc="Instalações completas residenciais e comerciais: quadros, tomadas, iluminação, fiação e aterramento."
+            data-icon="⚡" data-svc="Instalação elétrica" data-glare>
+            <div class="card-icon ic-y" aria-hidden="true">⚡</div>
+            <h3 class="card-title">Instalação Elétrica</h3>
+            <p class="card-desc">Residencial e comercial, do zero ao acabamento com ART.</p>
+            <span class="card-tag tag-pop">Popular</span>
+          </button>
+        </li>
+
+        <li>
+          <button class="svc-card js-service-card" type="button"
+            aria-label="Manutenção e reparo elétrico — clique para solicitar" data-title="Manutenção & Reparo"
+            data-desc="Reparos em circuitos, disjuntores, chuveiros e curtos. Diagnóstico completo com equipamentos profissionais."
+            data-icon="🔧" data-svc="Manutenção / reparo" data-glare>
+            <div class="card-icon ic-b" aria-hidden="true">🔧</div>
+            <h3 class="card-title">Manutenção & Reparo</h3>
+            <p class="card-desc">Diagnóstico e correção de falhas — emergência 24h.</p>
+            <span class="card-tag tag-24">24h</span>
+          </button>
+        </li>
+
+        <li>
+          <button class="svc-card js-service-card" type="button" aria-label="Quadro de luz — instalação e modernização"
+            data-title="Quadro de Distribuição"
+            data-desc="Instalação, troca e modernização de quadros elétricos com disjuntores, DR e DPS para sua segurança."
+            data-icon="🗳️" data-svc="Quadro de luz" data-glare>
+            <div class="card-icon ic-o" aria-hidden="true">🗳️</div>
+            <h3 class="card-title">Quadro de Luz</h3>
+            <p class="card-desc">Modernização com DR e DPS para máxima segurança.</p>
+          </button>
+        </li>
+
+        <li>
+          <button class="svc-card js-service-card" type="button" aria-label="Iluminação LED — projeto e instalação"
+            data-title="Iluminação LED"
+            data-desc="Projeto luminotécnico e instalação com tecnologia LED. Economia de até 80% na conta de energia."
+            data-icon="💡" data-svc="Iluminação LED" data-glare>
+            <div class="card-icon ic-y" aria-hidden="true">💡</div>
+            <h3 class="card-title">Iluminação LED</h3>
+            <p class="card-desc">Projeto luminotécnico e até 80% de economia de energia.</p>
+            <span class="card-tag tag-new">Novo</span>
+          </button>
+        </li>
+
+        <li>
+          <button class="svc-card wide js-service-card" type="button"
+            aria-label="Ar-condicionado e câmeras CFTV — instalação" data-title="Ar-condicionado & CFTV"
+            data-desc="Instalação de splits, VRFs, câmeras CFTV e automação residencial. Tecnologia para seu conforto e segurança."
+            data-icon="🌬️" data-svc="Ar-condicionado" data-glare>
+            <div class="card-icon ic-b" aria-hidden="true">🌬️</div>
+            <h3 class="card-title">Ar-Condicionado & CFTV</h3>
+            <p class="card-desc">Splits, câmeras de segurança e automação residencial. Tecnologia a favor do seu
+              conforto
+              e tranquilidade.</p>
+          </button>
+        </li>
+
+      </ul>
+    </div>
+
+    <!-- WHY US -->
+    <section class="why-section reveal" id="porque-nos" aria-labelledby="why-ttl">
+      <div class="sec-label" aria-hidden="true">Diferenciais</div>
+      <h2 class="sec-title" id="why-ttl">Por que nos <em>escolher?</em></h2>
+      <div class="why-card">
+        <ul class="why-list" aria-label="Nossos diferenciais">
+          <li class="why-item">
+            <div class="why-icon" aria-hidden="true">🏅</div>
+            <div class="why-text"><strong>Certificados pelo CREA/MTE</strong><span>Eletricistas habilitados, com ART e
+                registro profissional ativo.</span></div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon" aria-hidden="true">⚡</div>
+            <div class="why-text"><strong>Atendimento em até 2 horas</strong><span>Emergências resolvidas com agilidade
+                em toda região.</span></div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon" aria-hidden="true">🛡️</div>
+            <div class="why-text"><strong>Garantia contratual de 12 meses</strong><span>Todo serviço tem garantia
+                escrita e assistência pós-atendimento.</span></div>
+          </li>
+          <li class="why-item">
+            <div class="why-icon" aria-hidden="true">📋</div>
+            <div class="why-text"><strong>Orçamento gratuito e transparente</strong><span>Preços claros e detalhados
+                antes de qualquer execução.</span></div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="proc-section reveal" aria-labelledby="proc-ttl">
+      <div class="sec-label" aria-hidden="true">Como funciona</div>
+      <h2 class="sec-title" id="proc-ttl">Simples e <em>rápido</em></h2>
+      <ol class="steps" aria-label="Etapas do atendimento">
+        <li class="step">
+          <div class="step-num" aria-hidden="true">01</div>
+          <div class="step-body"><strong>Solicite o orçamento</strong>
+            <p>Descreva o serviço via WhatsApp ou formulário. Respondemos em minutos.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">02</div>
+          <div class="step-body"><strong>Visita técnica gratuita</strong>
+            <p>Um técnico vai até você para avaliar e orçar sem custo algum.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">03</div>
+          <div class="step-body"><strong>Execução com qualidade</strong>
+            <p>Trabalho realizado por profissionais certificados com material de primeira linha.</p>
+          </div>
+        </li>
+        <li class="step">
+          <div class="step-num" aria-hidden="true">04</div>
+          <div class="step-body"><strong>Garantia e suporte</strong>
+            <p>Emissão de ART e 12 meses de garantia. Qualquer dúvida, estamos disponíveis.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testi-section" aria-labelledby="testi-ttl">
+      <div class="testi-hdr reveal">
+        <div class="sec-label" aria-hidden="true">Depoimentos</div>
+        <h2 class="sec-title" id="testi-ttl">O que dizem <em>nossos clientes</em></h2>
+      </div>
+      <section class="marquee-wrap" aria-label="Carrossel de depoimentos">
+        <div class="marquee-track" id="marqueeTrack" aria-live="off"></div>
+      </section>
+    </section>
+
+    <!-- COVERAGE -->
+    <section class="area-section reveal" id="area" aria-labelledby="area-ttl">
+      <div class="sec-label" aria-hidden="true">Atendimento</div>
+      <h2 class="sec-title" id="area-ttl" style="margin-bottom:16px">Área de <em>cobertura</em></h2>
+      <div class="area-card">
+        <div class="area-title"><span aria-hidden="true">📍</span> Atendemos em toda a região</div>
+        <ul class="pills" aria-label="Cidades atendidas">
+          <li><span class="pill active">Anchieta</span></li>
+          <li><span class="pill">Guarapari</span></li>
+          <li><span class="pill">Piúma</span></li>
+          <li><span class="pill">Alfredo Chaves</span></li>
+          <li><span class="pill">Iconha</span></li>
+          <li><span class="pill">Iriri</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="cta-section reveal">
+      <h2 class="cta-title">Precisa de um eletricista agora?</h2>
+      <p class="cta-sub">Atendemos emergências 24h na região. Entre em contato e receba um orçamento gratuito!</p>
+      <div class="cta-acts">
+        <button class="btn-wa js-safe-open"
+          data-url="https://wa.me/5528992227076?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20servi%C3%A7o%20el%C3%A9trico."
+          aria-label="Falar no WhatsApp — abre o aplicativo WhatsApp">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" aria-hidden="true">
+            <path
+              d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+            <path
+              d="M12 0C5.373 0 0 5.373 0 12c0 2.112.551 4.09 1.515 5.81L.057 23.25a.75.75 0 00.944.944l5.44-1.458A11.954 11.954 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-1.89 0-3.66-.497-5.19-1.366l-.373-.218-3.863 1.036 1.036-3.863-.218-.373A9.95 9.95 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+          </svg>
+          Falar no WhatsApp
+        </button>
+        <a class="btn-tel" href="tel:+5528992227076" aria-label="Ligar para (28) 99222-7076">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
+            stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path
+              d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 11.5a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.15a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 15z" />
+          </svg>
+          (28) 99222-7076
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /wrapper -->
+
+  <!-- ════════════════════ MODAL ════════════════════ -->
+  <dialog class="modal-overlay" id="modalOverlay" aria-labelledby="modalTitle" aria-describedby="modalSub">
+    <div class="modal-sheet" id="modalSheet">
+      <div class="modal-handle" aria-hidden="true"></div>
+      <button class="modal-close js-close-modal" aria-label="Fechar formulário">✕</button>
+      <h2 class="modal-title" id="modalTitle">Solicitar Serviço</h2>
+      <p class="modal-sub" id="modalSub">Preencha os dados e entraremos em contato em minutos.</p>
+
+      <form id="svcForm" novalidate>
+        <div class="form-grp" id="fg-name">
+          <label for="f-name">Seu nome <span class="req" aria-hidden="true">*</span></label>
+          <input type="text" id="f-name" name="name" placeholder="Ex: João Silva" autocomplete="name" maxlength="80"
+            required aria-required="true" aria-describedby="e-name" />
+          <span class="field-err" id="e-name" role="alert">Informe seu nome completo (apenas letras).</span>
+        </div>
+
+        <div class="form-grp" id="fg-phone">
+          <label for="f-phone">WhatsApp <span class="req" aria-hidden="true">*</span></label>
+          <input type="tel" id="f-phone" name="phone" placeholder="(24) 99999-0000" autocomplete="tel" maxlength="16"
+            required aria-required="true" aria-describedby="e-phone" inputmode="tel" />
+          <span class="field-err" id="e-phone" role="alert">Informe um número de WhatsApp válido com DDD.</span>
+        </div>
+
+        <div class="form-grp" id="fg-svc">
+          <label for="f-svc">Tipo de serviço <span class="req" aria-hidden="true">*</span></label>
+          <select id="f-svc" name="service" required aria-required="true" aria-describedby="e-svc">
+            <option value="">Selecione um serviço...</option>
+            <option value="Instalação elétrica">Instalação elétrica</option>
+            <option value="Manutenção / reparo">Manutenção / reparo</option>
+            <option value="Quadro de luz">Quadro de luz</option>
+            <option value="Iluminação LED">Iluminação LED</option>
+            <option value="Ar-condicionado">Ar-condicionado</option>
+            <option value="Câmeras CFTV">Câmeras CFTV</option>
+            <option value="Automação residencial">Automação residencial</option>
+            <option value="Emergência">Emergência 24h</option>
+            <option value="Outro">Outro</option>
+          </select>
+          <span class="field-err" id="e-svc" role="alert">Selecione o tipo de serviço.</span>
+        </div>
+
+        <div class="form-grp">
+          <label for="f-msg">Descrição <span style="color:var(--muted);font-weight:400">(opcional)</span></label>
+          <textarea id="f-msg" name="message" placeholder="Descreva brevemente o problema ou o que precisa..."
+            maxlength="500" aria-describedby="char-msg"></textarea>
+          <div class="char-count" id="char-msg" aria-live="polite">0 / 500</div>
+        </div>
+
+        <button type="submit" class="modal-btn" id="submitBtn">
+          Enviar solicitação ⚡
+        </button>
+      </form>
+    </div>
+  </dialog>
+
+</body>
+
+</html>
