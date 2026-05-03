@@ -189,7 +189,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const countObs = new IntersectionObserver(entries => {
             entries.forEach(e => {
                 if (e.isIntersecting) {
-                    animateCount(document.getElementById('cnt-cli'), 1240, '+', 1800);
+                    animateCount(document.getElementById('cnt-cli'), 50, '+', 2000);
                     countObs.disconnect();
                 }
             });
